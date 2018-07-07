@@ -4,6 +4,7 @@ import ModuleReadme from '../../components/ModuleReadme/ModuleReadme';
 import Attendance from '../../components/Attendance/Attendance';
 import TimelineComp from '../../components/timelineComp/Timeline/Timeline';
 import { inject, observer } from 'mobx-react';
+// import { ModuleNotes } from "../../components/ModuleNotes";
 
 import {
   READ_ME_CHANGED,
@@ -83,7 +84,7 @@ export default class TimeLine extends Component {
     this.props.timeLineStore.getModulesOfGroup(item.id)
       .then(res => {
         this.setState({
-            infoSelectedModule: res[item.position],
+          infoSelectedModule: res[item.position],
         });
       })
       .catch(errorMessage);
@@ -127,6 +128,7 @@ export default class TimeLine extends Component {
       infoSelectedModule,
       tab,
     } = this.state;
+
     let content = <ModuleReadme readme={readme} repoName={repoName} />;
     if (tab === 'attendance') {
       content = (
